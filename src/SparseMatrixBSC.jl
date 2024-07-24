@@ -37,7 +37,7 @@ nblocks(A::SparseMatrixBSC, i::Int) = nblocks(A)[i]
 blocksize(A::SparseMatrixBSC) = A.R, A.C
 blocksize(A::SparseMatrixBSC, i::Int) = blocksize(A)[i]
 
-nnzblocks(A::SparseMatrixBSC) = size(A.nzval, 1) * size(A.nzval, 2)
+nnzblocks(A::SparseMatrixBSC) = size(A.nzval, 3)
 nzblockrange(A::SparseMatrixBSC, col::Integer) =  Int(A.colptr[col]):Int(A.colptr[col + 1] - 1)
 
 Base.size(A::SparseMatrixBSC) = (A.m, A.n)
